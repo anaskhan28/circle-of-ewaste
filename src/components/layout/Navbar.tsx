@@ -65,7 +65,7 @@ export function Navbar() {
                 alt="CIRKAL OF E-WASTE"
                 width={160}
                 height={50}
-                className="h-10 sm:h-18 w-auto object-contain"
+                className="h-15 sm:h-18 w-auto object-contain"
                 priority
               />
             </Link>
