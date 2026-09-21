@@ -14,7 +14,7 @@ export const business = {
 
   // Contact details — replace with real values
   email: "hello@cirkalofewaste.com",
-  phone: "[PHONE — CONFIGURABLE]",
+  phone: "+91 8928963329",
   businessHours: "Monday to Saturday, 9:00 AM – 6:00 PM IST",
 
   // Physical address
