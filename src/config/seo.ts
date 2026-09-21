@@ -1,13 +1,30 @@
 import { business } from "./business";
 
+const getSiteUrl = (): string => {
+  if (process.env.NEXT_PUBLIC_SITE_URL) {
+    return process.env.NEXT_PUBLIC_SITE_URL.startsWith("http")
+      ? process.env.NEXT_PUBLIC_SITE_URL
+      : `https://${process.env.NEXT_PUBLIC_SITE_URL}`;
+  }
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
+    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+  }
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`;
+  }
+  return `https://${business.primaryDomain}`;
+};
+
+const resolvedSiteUrl = getSiteUrl();
+
 export const seo = {
   siteName: "CIRKAL OF E-WASTE",
   defaultTitle: "CIRKAL OF E-WASTE | IT Asset Disposition & E-Waste Management India",
   titleTemplate: "%s | CIRKAL OF E-WASTE",
   defaultDescription:
     "CIRKAL OF E-WASTE helps businesses manage retired IT assets and recover maximum value through ITAD, data security, refurbishment, reuse and responsible recycling. India's B2B circular economy platform.",
-  siteUrl: `https://${business.primaryDomain}`,
-  ogImage: `https://${business.primaryDomain}/og-default.jpg`,
+  siteUrl: resolvedSiteUrl,
+  ogImage: `${resolvedSiteUrl}/og-default.jpg`,
   twitterHandle: business.social.twitter || undefined,
   locale: "en_IN",
   keywords: [

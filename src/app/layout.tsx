@@ -24,21 +24,48 @@ export const metadata: Metadata = {
   description: seo.defaultDescription,
   metadataBase: new URL(seo.siteUrl),
   keywords: seo.keywords,
+  manifest: "/site.webmanifest",
+  icons: {
+    icon: [
+      { url: "/favicon.png", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    shortcut: "/favicon.png",
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
   openGraph: {
     type: "website",
     siteName: seo.siteName,
     locale: seo.locale,
+    title: seo.defaultTitle,
+    description: seo.defaultDescription,
+    url: seo.siteUrl,
     images: [
       {
         url: "/og-default.jpg",
         width: 1200,
         height: 630,
+        type: "image/jpeg",
         alt: "CIRKAL OF E-WASTE — IT Asset Disposition & E-Waste Management India",
+      },
+      {
+        url: "/og-square.png",
+        width: 600,
+        height: 600,
+        type: "image/png",
+        alt: "CIRKAL OF E-WASTE Logo",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
+    title: seo.defaultTitle,
+    description: seo.defaultDescription,
+    images: ["/og-default.jpg"],
     site: seo.twitterHandle,
     creator: seo.twitterHandle,
   },
@@ -69,6 +96,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={plusJakarta.variable}>
       <head>
+        <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <meta name="theme-color" content="#0284C7" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
