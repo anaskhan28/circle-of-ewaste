@@ -111,7 +111,7 @@ export function Footer() {
               >
                 {business.email}
               </a>
-              {business.phone !== "[PHONE — CONFIGURABLE]" && (
+              {Boolean(business.phone && !business.phone.includes("CONFIGURABLE")) && (
                 <a
                   href={`tel:${business.phone}`}
                   className="text-sm text-gray-400 hover:text-white transition-colors duration-200 block mt-1"

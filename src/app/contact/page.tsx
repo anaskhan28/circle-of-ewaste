@@ -57,7 +57,7 @@ export default function ContactPage() {
                     </div>
                   </div>
 
-                  {business.phone !== "[PHONE — CONFIGURABLE]" && (
+                  {Boolean(business.phone && !business.phone.includes("CONFIGURABLE")) && (
                     <div className="flex items-start gap-4">
                       <div className="w-10 h-10 rounded-xl bg-very-light-blue flex items-center justify-center flex-shrink-0">
                         <Phone className="w-5 h-5 text-brand-blue" />
@@ -81,7 +81,7 @@ export default function ContactPage() {
                     </div>
                   </div>
 
-                  {business.address.line1 !== "[ADDRESS LINE 1 — CONFIGURABLE]" && (
+                  {Boolean(business.address.line1 && !business.address.line1.includes("CONFIGURABLE")) && (
                     <div className="flex items-start gap-4">
                       <div className="w-10 h-10 rounded-xl bg-very-light-blue flex items-center justify-center flex-shrink-0">
                         <MapPin className="w-5 h-5 text-brand-blue" />

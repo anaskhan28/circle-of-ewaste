@@ -5,7 +5,35 @@
  * These values are used across Contact, Footer, About, and Legal pages.
  */
 
-export const business = {
+export interface BusinessConfig {
+  legalName: string;
+  brandName: string;
+  email: string;
+  phone: string;
+  businessHours: string;
+  address: {
+    line1: string;
+    line2: string;
+    city: string;
+    state: string;
+    pin: string;
+    country: string;
+  };
+  gstin: string;
+  pan: string;
+  cin: string;
+  social: {
+    linkedin: string;
+    twitter: string;
+    instagram: string;
+    youtube: string;
+  };
+  domains: readonly string[];
+  primaryDomain: string;
+  founded: string | null;
+}
+
+export const business: BusinessConfig = {
   // Legal / registered entity name
   legalName: "[LEGAL ENTITY NAME — CONFIGURABLE]",
 
@@ -46,4 +74,4 @@ export const business = {
 
   // Founding year — set when ready to publish
   founded: null as string | null,
-} as const;
+};
